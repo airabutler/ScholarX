@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABC971.Views.AssessmentEdit"
+             Title="EDIT ASSESSMENT">
+
+    <!--Heading-->
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="ENTER ASSESSMENT DETAILS"
+                   FontSize="Medium"
+                   HorizontalOptions="CenterAndExpand" />
+            <!--Form for Inputing Assessment Information-->
+
+            <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">ID:</Label>
+                <Entry Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       Text="{Binding Id}"
+                       VerticalTextAlignment="Center"
+                       Placeholder="Assessment ID"
+                       x:Name="AssessmentID"
+                       IsReadOnly="True">
+                </Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">NAME:</Label>
+                <Entry Grid.Row="1"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       Text="{Binding Name}"
+                       VerticalTextAlignment="Center"
+                       Placeholder="Assessment Name"
+                       x:Name="AssessmentName">
+
+                </Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">TYPE:</Label>
+                <Picker Grid.Row="2"
+                        Grid.Column="1"
+                        FontSize="Medium"
+                        x:Name="AssessmentTypeSelector"
+                        Title="Select Type"
+                        TitleColor="DarkSlateGray">
+                    <Picker.Items>
+                        <x:String>Performance</x:String>
+                        <x:String>Objective</x:String>
+                    </Picker.Items>
+                </Picker>
+
+
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">START DATE:</Label>
+                <DatePicker Grid.Row="3"
+                            Grid.Column="1"
+                            x:Name="StartDateSelector">
+
+                </DatePicker>
+                
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">DUE DATE:</Label>
+                <DatePicker Grid.Row="4"
+                            Grid.Column="1"
+                            x:Name="DueDateSelector">
+
+                </DatePicker>
+
+                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">NOTFICATIONS ON?</Label>
+                <Switch Grid.Row="5"
+                        Grid.Column="1"
+                        x:Name="Alert"
+                        HorizontalOptions="CenterAndExpand"
+                        IsToggled="False"/>
+ 
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+                <Button WidthRequest="100"
+                        Padding="5" Text="Save"
+                        x:Name="SaveAssessment"
+                        TextColor="#0C2340"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="SaveAssessment_Clicked"></Button>
+
+                <Button WidthRequest="100"
+                        Padding="5"
+                        Text="Delete"
+                        x:Name="DeleteAssessment"
+                        TextColor="#0C2340"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="DeleteAssessment_Clicked"></Button>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABC971.Views.CourseEdit">
+
+    <NavigationPage.TitleView>
+        <Label Text="EDIT COURSE" FontSize="Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Start" BackgroundColor="Transparent" TextColor="#0C2340" FontAttributes="Bold"></Label>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView>
+          <StackLayout>
+            <Grid Padding="3" RowSpacing="1.5" ColumnSpacing=".5" BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">COURSE ID:</Label>
+                <Entry Grid.Row="0 " Grid.Column="1" x:Name="CourseId" Text="{Binding Id}" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">COURSE NAME:</Label>
+                <Entry x:Name="CourseName" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">INSTRUCTOR NAME:</Label>
+                <Entry x:Name="InstrName" Text="{Binding InstrName}" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">INSTRUCTOR PHONE:</Label>
+                <Entry x:Name="InstrPhone" Text="{Binding InstrPhone}" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">INSTRUCTOR EMAIL:</Label>
+                <Entry x:Name="InstrEmail" Text="{Binding InstrEmail}" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+
+                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">STATUS:</Label>
+                <Picker Grid.Row="5" Grid.Column="1" FontSize="Medium" x:Name="CourseStatusSelector" Title="Select Status" TitleColor="DarkSlateGray">
+                    <Picker.Items>
+                        <x:String>Current</x:String>
+                        <x:String>Passed</x:String>
+                        <x:String>Failed</x:String>
+                        <x:String>Not Started</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">START DATE:</Label>
+                <DatePicker Grid.Row="6" Grid.Column="1" x:Name="CourseStartSelector"></DatePicker>
+
+                <Label Grid.Row="7" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">END DATE:</Label>
+                <DatePicker Grid.Row="7" Grid.Column="1" x:Name="CourseEndSelector"></DatePicker>
+
+                <Label Grid.Row="8" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">NOTIFICATIONS? </Label>
+                <Switch Grid.Row="8" Grid.Column="1" x:Name="Alert" HorizontalOptions="CenterAndExpand" IsToggled="False"/>
+
+
+                <Label Grid.Row="9" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center"> NOTES:</Label>
+                <Editor Grid.Row="9" Grid.Column="1" x:Name="CourseNotes" Text="{Binding Notes}" ></Editor>
+
+                <Button Grid.Row="10" Grid.Column="0" Padding="7" Margin="10,0,10,0" BackgroundColor="Goldenrod" TextColor="Black" Text="SHARE COURSE LINK" x:Name="ShareUri" Clicked="ShareUri_Clicked"></Button>
+
+                <Button Grid.Row="10" Grid.Column="1" Padding="7" Margin="10,0,10,0" BackgroundColor="#0C2340" TextColor="WhiteSmoke" Text="SHARE COURSE NOTES" x:Name="ShareText" Clicked="ShareText_Clicked"></Button>
+
+                </Grid>
+              
+                <StackLayout Orientation = "Horizontal" HorizontalOptions="EndAndExpand">
+                    <Button WidthRequest= "100" Padding="5" Text="Save" x:Name="SaveCourse" TextColor="#0C2340" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand" Clicked="SaveCourse_Clicked"></Button>
+                    <Button WidthRequest= "100" Padding="5" Text="Delete" x:Name="DeleteCourse" TextColor="#0C2340" BackgroundColor="Transparent" HorizontalOptions="StartAndExpand" Margin="0,0,10,0"  Clicked="DeleteCourse_Clicked"></Button>
+
+                </StackLayout>
+
+              <Label Text="SCROLL DOWN TO SEE ASSESSMENTS" FontSize="Small" HorizontalOptions="Center"></Label>
+
+              <Label Text="__________________________________________________" HorizontalOptions="Center"></Label>
+
+               
+             <StackLayout Orientation="Vertical" Margin="0,10,0,10">  
+                <Label
+                    Text="ASSESSMENTS"
+                    FontSize="25"
+                    CharacterSpacing=".5"
+                    FontAttributes="Bold"
+                    Padding="10"
+                    TextColor="Black"
+                    HorizontalOptions="Center"></Label>
+                    
+                 <Label Text="DOUBLE TAP BOX TO EDIT ASSESSMENT" FontSize="Small" HorizontalOptions="Center"></Label>
+
+          <Button x:Name="AddAssessment"
+                  Text="ADD ASSESSMENT"
+                  TextColor="#0C2340"
+                  BackgroundColor="Transparent"
+                  CornerRadius="10"
+                  HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="Center"
+                  Margin="0,0,10,0"
+                  Clicked="AddAssessment_Clicked">
+                 </Button>
+
+              </StackLayout>
+
+                <CollectionView x:Name="AssessmentCollectionView"
+                    ItemsSource="{Binding Assessments}"
+                    EmptyView="ZERO ASSESSMENTS FOUND"
+                    SelectionMode="Single"
+                    SelectionChanged="AssessmentCollectionView_SelectionChanged">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame BorderColor="WhiteSmoke"  CornerRadius="0" HasShadow="True" Padding="5" Margin="10,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">NAME:</Label>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Name}"></Label>
+                                        <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">TYPE:</Label>
+                                        <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding Type}"></Label>
+
+                                        <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">DUE DATE:</Label>
+                                        <Label Grid.Row="2" Grid.Column="1" FontSize="Medium" VerticalTextAlignment="Center" Text="{Binding DueDate, StringFormat='{0:M/dd/yyyy}'}"></Label>
+
+                                    </Grid>
+                                </Frame>
+
+                            </StackLayout>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </StackLayout>
+
+      
+      </ScrollView>
+
+
+    </ContentPage.Content>
+</ContentPage>

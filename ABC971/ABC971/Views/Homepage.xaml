@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABC971.Views.Homepage"
+             NavigationPage.HasNavigationBar="False">
+    <NavigationPage.TitleView>
+        <Label Text="Homepage" FontSize="Title" HorizontalOptions="Center" ></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+        <StackLayout Spacing="0">
+            <Label Text="ACADEMIC TRACKER" FontSize="28" FontAttributes="Bold" CharacterSpacing=".25" HorizontalTextAlignment="Center" HorizontalOptions="Fill" Padding="30" BackgroundColor= "WhiteSmoke" TextColor="Black"></Label>
+            <Label Text="_____________" HorizontalOptions="Center"></Label>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+            </Grid>
+                    
+            <StackLayout>
+                <StackLayout Orientation="Vertical" Margin="15,15,15,7" VerticalOptions= "CenterAndExpand">
+
+                    <Button Text="SHOW EXAMPLE" FontAttributes="Bold" FontSize="15" Padding="15" x:Name="LoadDataButton" TextColor="#0C2340" VerticalOptions="Center" Clicked="LoadDataButton_Clicked"></Button>
+
+                    <Button Text="DELETE EXAMPLE" FontAttributes="Bold" FontSize="15" Padding="15" x:Name="ClearDataButton" TextColor="#0C2340" VerticalOptions="Center" Clicked="ClearDataButton_Clicked"></Button>
+
+                    <Button Text="ADD TERM" x:Name="AddTermButton" FontAttributes="Bold" FontSize="15" TextColor="WhiteSmoke" BackgroundColor="#0C2340 " CornerRadius="8" Clicked="Button_Clicked" VerticalOptions="Center"></Button>
+
+
+                </StackLayout>
+             
+            </StackLayout>
+
+            
+            <StackLayout Orientation="Vertical" BackgroundColor="WhiteSmoke">
+                <Label Text="TERMS" FontSize="22" CharacterSpacing=".3" HorizontalOptions="CenterAndExpand" Padding="20" FontAttributes="Bold" TextColor="Black" ></Label>
+                <Label Text="DOUBLE TAP BOX TO EDIT TERM" FontSize="Small" HorizontalOptions="Center"></Label>
+
+            </StackLayout>
+
+            <CollectionView x:Name="TermCollectionView"
+                            ItemsUpdatingScrollMode="KeepItemsInView"
+                            VerticalScrollBarVisibility="Always"
+                            ItemsSource="{Binding Terms}"
+                            EmptyView="ZERO TERMS FOUND"
+                            SelectionMode="Single"
+                            SelectionChanged="TermCollectionView_SelectionChanged"
+                            BackgroundColor="WhiteSmoke">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame BorderColor="GhostWhite" Margin ="8,0" Padding="4" HasShadow="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Grid.ColumnSpan="2" Padding="5" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Start" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Status, StringFormat='STATUS: {0}'}" Padding="5" TextColor="Gray" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="End" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand"/>
+
+                                    <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" Padding = "4" VerticalTextAlignment="Center" FontAttributes="Bold">START DATE:</Label>
+                                    <Label Grid.Row="1" Grid.Column="1" FontSize="Medium" Padding = "4" VerticalTextAlignment="Center" Text="{Binding StartDate, StringFormat='{0:M/dd/yyyy}'}"></Label>
+                                    <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" Padding = "4" VerticalTextAlignment="Center" FontAttributes="Bold">END DATE:</Label>
+                                    <Label Grid.Row="2" Grid.Column="1" FontSize="Medium" Padding = "4" VerticalTextAlignment="Center" Text="{Binding EndDate, StringFormat='{0:M/dd/yyyy}'}"></Label>
+
+
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
