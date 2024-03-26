@@ -1,4 +1,4 @@
-# ScholasticSync: Academic Tracker Mobile Application
+# ScholarX: Academic Tracker Mobile Application
 
 ## Overview
 The Academic Tracker mobile application is designed to assist students in tracking their academic terms, courses, and assessments. This README file provides an overview of the project, including its features, setup instructions, and additional notes.
